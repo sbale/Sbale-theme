@@ -1,0 +1,767 @@
+<!DOCTYPE html> 
+<html>
+
+    <!--
+	Sbale - 1.0
+	Code by Alessandro Franciosi. Twitter: @Alessan05136436
+	Graphics by Andrea Michielon. Twitter: @Andr3aMichi3lon
+	Email: franciosialessandro@gmail.com
+	-->
+
+ <head>
+<!-- Font -->
+<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic' rel='stylesheet' type='text/css'>
+
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="{Favicon}" />
+	
+<!-- RSS -->
+<link rel="alternate" type="application/rss+xml" href="{RSS}" />
+	
+<!-- Meta Tags -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+{block:Description}<meta name="description" content="{MetaDescription}"/>{/block:Description}
+				
+<title>{Title}</title>
+
+<style>
+
+body {
+  background-color: #fff;
+  padding: 0;
+  font-family: "Lato", sans-serif;
+  font-size: 15px;
+  line-height: 1.75em;
+  font-weight: 400;
+}
+
+#main {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -4em;
+  margin-top: 100px;
+}
+
+.profileimage img {
+  margin: 5px;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -o-border-radius: 8px;
+  box-shadow: 1px 1px 4px #222;
+  -webkit-box-shadow: 1px 1px 4px #222;
+  -moz-box-shadow: 1px 1px 4px #222;
+  -o-box-shadow: 1px 1px 4px #222;
+}
+
+.image img {
+  max-width: 440px;
+  margin-top: 5px;
+  margin: 5px;
+  border-image: 10px solid #fff;
+  -webkit-box-shadow: 1px 1px 10px 1px #222;
+  -moz-box-shadow: 1px 1px 10px 1px #222;
+  -o-box-shadow: 1px 1px 10px 1px #222;
+  box-shadow: 1px 1px 10px 1px #222;
+  -webkit-box-shadow: 1px 1px 10px 1px #222;
+  -moz-box-shadow: 1px 1px 10px 1px #222;
+  -o-box-shadow: 1px 1px 10px 1px #222;
+}
+/*========================================================
+		TEXT
+	========================================================*/	
+
+p {
+    color: #222222;
+}
+
+p a:hover {
+   text-decoration: none;
+   color: {color:Link};
+   border-bottom: dotted 1.5px {color:Link};
+   background-color: #EEE;
+} 
+
+p a, p a:visited, p a:active {
+  text-decoration: none;
+  color: {color:Link}; 
+  border-bottom: dotted 1.5px {color:Link};
+}
+
+h2, h3, h4, h5, h6, p {
+  font-size: 1em;
+  line-height: 1.75em;
+  padding: 0px;
+  margin: 0px 0px 1em;
+}
+
+h1 {
+  font-size: 1em;
+  padding: 0px;
+  margin-top: 0.8em;
+  margin-bottom: 1.5em;
+}
+
+.titlelinkcolor a, .titlelinkcolor a:visited, .titlelinkcolor a:active, .titlelinkcolor a:hover
+{
+  margin-right: 5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: {color:Title}; 
+}
+
+/*========================================================
+		POSTS
+	========================================================*/	
+#posts {
+  width: 65%;
+  overflow:hidden;
+  background-color: #fff;
+  height: 0 auto;
+}
+
+#divposts {
+  margin-top: 20%;
+  margin-bottom: 20%;
+}          
+
+#postsdiv {
+  width: 450px;
+  overflow: hidden;
+  margin-left: 15%;
+  height: 0 auto;
+  text-align:left;
+}
+
+ 
+.poststitle h2 a, .poststitle h2 a:visited, .poststitle h2 a:active
+{
+  color: {color:TitlePosts};
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1em;
+  border-bottom: dotted 1.5px #888;
+  text-transform: uppercase;
+}
+
+.poststitle h2 a:hover {
+  text-decoration: none;
+  background-color: #EEE;
+}
+
+.date {
+  color: #888;
+  font-style: italic;
+  font-size: 1.1em;
+}
+
+.permalink  a {
+  text-decoration: none;
+  color: #888;
+  font-style: italic;
+  font-size: 1.2em;
+}
+
+.tags {
+  color: #888;
+  font-style: italic;
+  font-size: 1.1em;    
+}
+
+.tags a {
+  color: #888;
+  text-decoration: none;
+}
+
+.note {
+  color: #888;
+  font-size: 1.1em;    
+}
+
+.note a {
+  color: #888;
+}
+
+.reblogs {
+  color: #888;
+  font-size: 1.1em;    
+}
+
+.reblogs a {
+  color: #888;
+}
+
+.count {
+  color: #888;
+  font-size: 1.1em;   
+}
+
+blockquote { 
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-left: 10px;
+  color:#888;
+  border-left:2px solid #eee;
+}
+
+.olderposts {
+  float: right;
+  text-align: right;
+} 
+
+.postquote {
+  font-style: italic;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.label {
+  text-transform: uppercase;
+  color: {color:Link};
+}
+
+.postvideo {
+  max-width: 450px;
+  height: auto;
+}
+/*========================================================
+		SIEDBAR
+	========================================================*/	
+
+#sidebar {
+    float:left;
+    text-align: right;
+    width: 34%;
+    overflow:hidden;
+    background-color: #fff;
+}
+
+ul#sidebar-items {
+    list-style: none outside none;
+    line-height: 1.75em;
+    margin-top: -10px;
+    padding: 0px;
+    width: 100%;
+}
+
+#sidebar-items a, #sidebar-items a:visited, #sidebar-items a:active {
+    color: {color:Menu};
+    text-transform: uppercase;
+    text-decoration: none;
+    border-bottom: medium none;
+}
+
+#sidebar-items a:hover {
+    text-decoration: none;
+    color: {color:MenuLinkHover};
+    padding-right: 4px;
+    border-right: 3px solid #000;
+}
+
+.siedbarmargin {
+   margin-right: 5px;
+}
+
+/*========================================================
+		FOOTER
+	========================================================*/	
+
+* {
+  margin: 0;
+}
+html, body {
+  height: 100%;
+}
+
+.footer, .push {
+  height: 4em;
+  color: rgb(0, 0, 0);
+  text-align:center;
+}
+
+.pfooter p {
+  text-transform: uppercase;
+  color: #CCC;
+}
+
+.developed {
+  text-transform: uppercase;
+  font-size: 10px;
+  color: #CCC;
+  margin-top: 6em;
+}
+
+.developed a , .developed a:visited, .developed a:active {
+  color: {color:Link};
+  border-bottom: 1px dotted solid {color:Link};
+}
+
+.developed a:hover {
+  background-color: #EEE;
+}
+
+/*========================================================
+		DUCK DUCK GO SEARCH BAR
+	========================================================*/	
+
+ .searchbar {
+  width: 100px;
+  height: 100px;
+  
+  position:absolute;
+  left: 50%;
+  margin-left: -50px;
+  margin-top: 0px;
+ }
+ .search
+  {
+    padding-bottom: 0px;
+  }
+   
+  .search li
+  {
+   list-style: none;
+   margin: 0 0 0em 0;
+   padding-left: 1em;
+   text-indent: -1em;
+ }
+  
+ .search time
+ {
+  margin-left: 0em;
+  font-size: .75em;
+  color: #fafafa;
+ }
+ 
+ #search
+ {
+  font-family: "Lato", sans-serif;
+  text-align: center; 
+  width: 100%;
+  max-width: 100px;
+  margin: 0px auto 0;
+  margin-left: 0px;
+ }
+  
+ #search input
+{
+  width: 80%;
+  text-align: center;
+  font-family: "Lato",sans-serif;
+  background-color: #fafafa;
+  border: 1px solid {color:Link};
+  padding: 6px 8%;
+  color: #888;
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
+  border-radius: 8px;
+  -webkit-box-shadow: 0 1px 0 rgba(255,255,255,.5);
+  -moz-box-shadow: 0 1px 0 rgba(255,255,255,.5);
+  box-shadow: 0 1px 0 rgba(255,255,255,.5);
+ }
+  
+ #search input:focus
+ {
+  outline: none;
+  -webkit-box-shadow: 0 1px 0 {color:Link}, 0 0 8px {color:Link};
+  -moz-box-shadow: 0 1px 0 {color:Link}, 0 0 8px {color:Link};
+  box-shadow: 0 1px 0 {color:Link}, 0 0 12px {color:Link};
+}
+
+@media (max-device-width: 480px) {
+ 
+body {
+    background-color: #fff;
+    padding: 0;
+    font-family: "Lato", sans-serif;
+    font-size: 1.6em;
+    line-height: 1.75em;
+}
+
+#posts {
+    width: 75%;
+    overflow:hidden;
+    background-color: #fff;
+    height: 0 auto;
+} 
+#postsdiv {
+    width: 70%;
+    overflow: hidden;
+    margin-left: 17%;
+    height: 0 auto;
+    text-align:left;
+}
+
+#sidebar {
+    float:left;
+    text-align: right;
+    width: 25%;
+    overflow:hidden;
+    background-color: #fff;
+}
+
+ul#sidebar-items {
+    list-style: none outside none;
+    line-height: 1.95em;
+    margin-top: -10px;
+    padding: 0px;
+    width: 100%;
+}
+
+p a:hover {
+   text-decoration: none;
+   color: #00B800;
+   border-bottom: dotted 2.5px {color:Link};
+   background-color: #EEE;
+} 
+
+p a, p a:visited, p a:active {
+    text-decoration: none;
+    color: {color:Link};
+    border-bottom: dotted 2.5px {color:Link};
+}
+
+h2, h3, h4, h5, h6, p {
+    font-size: 1em;
+    line-height: 1.70em;
+    padding: 0px;
+    margin: 0px 0px 1em;
+}
+
+h1 {
+    font-size: 25px;
+    line-height: 1.5em;
+    padding: 0px;
+    margin-top: 0.8em;
+    margin-bottom: 1.5em;
+}
+
+.poststitle h2 a, .poststitle h2 a:visited, .poststitle h2 a:active
+{
+    color: {color:TitlePosts};
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1em;
+    border-bottom: dotted 2.5px #888;
+    text-transform: uppercase;
+}
+
+.poststitle h2 a:hover {
+    text-decoration: none;
+    background-color: #EEE;
+}
+
+.date {
+  color: #888;
+  font-style: italic;
+  font-size: 1.1em;
+}
+
+.permalink  a {
+  text-decoration: none;
+  color: #888;
+  font-style: italic;
+  font-size: 1.1em;
+}
+
+
+.tags {
+  color: #888;
+  font-style: italic;
+  font-size: 1.1em;    
+}
+
+.tags a {
+  color: #888;
+  text-decoration: none;
+}
+
+.developed {
+  text-transform: uppercase;
+  font-size: 15px;
+  color: #CCC;
+  margin-bottom: 6em;
+  margin-top: 6em;
+}
+
+.developed a , .developed a:visited, .developed a:active {
+  color: {color:Link};
+  border-bottom: 2px dotted solid {color:Link};
+}
+
+.developed a:hover {
+  background-color: #EEE;
+}
+
+.developed p {
+  text-transform: uppercase;
+  font-size: 15px;
+  color: #CCC;
+  margin-top: 6em;
+}
+
+.fontsizesiedbar {
+ font-size: 18px;
+}
+
+}    
+
+/*========================================================
+		Custom CSS
+	========================================================*/						
+			
+	{CustomCSS}     
+     
+     
+ </style>
+
+
+<meta name="color:Title" content="#00B800"/>
+<meta name="color:TitlePosts" content="rgb(0,0,0)"/>
+<meta name="color:Link" content="#00B800"/>
+<meta name="color:Menu" content="#888"/>
+<meta name="color:MenuLinkHover" content="#00B800"/>
+  
+
+
+
+
+
+<meta name="text:About Link" content=""/>
+<meta name="text:Mail" content=""/>
+<meta name="text:Facebook Username" content=""/>
+<meta name="text:Twitter Username" content=""/>
+<meta name="text:Flickr Username" content=""/>
+<meta name="text:GitHub Username" content=""/>
+<meta name="text:GooglePlus Usernumber" content=""/>
+<meta name="text:Vimeo Username" content=""/>
+<meta name="text:YouTube Username" content=""/>
+    
+    
+</head>
+ <body>  
+<div id="main">
+<div id="sidebar">
+
+<!-- IMAGE -->
+
+<div class="profileimage">
+<img src="{PortraitURL-128}" alt="Profile Photo"/>
+    
+</div>
+
+<!-- TITLE -->
+
+
+<div class="titlelinkcolor">
+<h1><a href="/">{Title}</a></h1></div>
+ 
+<!-- SIEDBAR -->
+ <div class="siedbarmargin">
+<ul id="sidebar-items">
+
+    <li>
+        <a href="/">HOME</a>
+    </li>
+    <li>
+        <a href="{text:About Link}">ABOUT</a>
+    </li>
+    <li>
+        <a href="mailto:{text:Mail}">MAIL ME</a>
+    </li>
+    <li>
+        <a href="/archive">archive</a>
+    </li>
+     <li>
+        {block:IfFacebookUsername}
+    <a href="http://facebook.com/{text:Facebook Username}">FACEBOOK</a>
+        {/block:IfFacebookUsername}
+        </li>
+     <li>
+        {block:IfFlickrUsername}
+        <a href="http://flickr.com/{text:Flickr Username}">FLICKR</a>
+        {/block:IfFlickrUsername}
+    </li>
+    <li>
+        {block:IfGooglePlusUsernumber}
+        <a href="https://plus.google.com/u/1/{text:GooglePlus Usernumber}">GOOGLE PLUS</a>
+        {/block:IfGooglePlusUsernumber}
+    </li>
+    <li>
+        {block:IfVimeoUsername}
+        <a href="http://vimeo.com/{text:Vimeo Username}">VIMEO</a>
+        {/block:IfVimeoUsername}
+        
+    </li>
+    <li>
+        {block:IfYouTubeUsername}
+    <a href="http://youtube.com/user/{text:YouTube Username}">YOUTUBE</a>
+    
+        {/block:IfYouTubeUsername}
+    </li>
+    <li>
+       {block:IfTwitterUsername}
+        <a href="http://twitter.com/{text:Twitter Username}">TWITTER</a>
+       {/block:IfTwitterUsername}
+    </li>
+     <li>
+        <a href="{RSS}">RSS FEED</a>
+    </li>
+    <li>
+        {block:IfGitHubUsername}
+        <a href="https://github.com/{text:GitHub Username}">GITHUB</a>
+        {/block:IfGitHubUsername}
+    </li>
+</ul>
+</div>
+</div> 
+<div id="posts">
+<div id="postsdiv">{block:Posts}<div class="image">
+
+<!-- TEXT -->
+
+{block:Text}<div class="poststitle">{block:Title}<h2><a href="{Permalink}">{Title}</a></h2>
+{/block:Title}{Body}
+</div> 
+{/block:Text}
+
+<!-- LINK -->
+
+{block:Link}
+<div class="poststitle"><h2><a href="{URL}" class="" {Target}>{Name}</a> →</h2></div>
+{block:Description}
+ {Description}
+{/block:Description}
+{/block:Link}
+
+<!-- QUOTE -->
+
+{block:Quote}
+<div class="postquote">
+&ldquo; {Quote} &rdquo;
+</div>
+<br>
+{block:Source}
+<p>- {Source}</p>
+{/block:Source}
+{/block:Quote}
+
+<!-- CHAT -->
+
+{block:Chat}
+{block:Title}
+ <span class="poststitle"><h2><a href="{Permalink}">{Title}</a></h2>
+ </span>
+{/block:Title}
+{block:Lines}
+<div class="{Alt} user_{UserNumber}">
+{block:Label}
+<span class="label">{Label}</span>
+{/block:Label}{Line}
+{/block:Lines}
+</div>
+{/block:Chat}
+<br> 
+
+<!-- VIDEO -->
+
+{block:Video}
+<div class="postvideo">
+{Video-500}</div>{block:Caption}
+<div class="caption">{Caption}</div>
+{/block:Caption}
+{/block:Video}
+
+<!-- AUDIO -->
+
+{block:Audio}
+{AudioPlayerBlack}{block:Caption}
+<div class="caption">{Caption}</div>
+{/block:Caption}
+{/block:Audio}
+
+<!-- PHOTO -->
+
+{block:Photo}
+<img src="{PhotoURL-500}" alt="{PhotoAlt}"/>
+{block:Caption}
+<div class="caption">{Caption}</div>
+{/block:Caption}
+{/block:Photo}{block:Panorama}
+{LinkOpenTag}
+<img src="{PhotoURL-Panorama}" alt="{PhotoAlt}"/>
+{LinkCloseTag}{block:Caption}
+<div class="caption">{Caption}</div>
+{/block:Caption}
+{/block:Panorama}{block:Photoset}
+{Photoset-500}{block:Caption}
+<div class="caption">{Caption}</div>
+{/block:Caption}{/block:Photoset}
+
+<!-- ANSWER -->
+
+{block:Answer}
+    <div><p>{Asker}</p></div><div><p>{Question}</p></div><img src="{AskerPortraitURL-96}" alt=""></div>
+
+    {block:Answerer}
+        <div><p>{Answerer}</p></div><div><p>{Answer}</p></div><img src="{AnswererPortraitURL-96}" alt=""></div>
+    {/block:Answerer}
+
+    <div>
+       <p> {Replies}</p>
+    </div>
+{/block:Answer}
+<!-- PERMALINK, DATE, hr -->
+
+<div class="tags">Tags:{block:HasTags}{block:Tags} <a href="{TagURLChrono}">{Tag}</a>
+{/block:Tags}
+{/block:HasTags}
+</div>  
+<span class="permalink"><a href="{Permalink}">∞</a> - </span> <span class="date">{block:Date}{Month} {DayOfMonth}, {Year}{/block:Date}</span>    
+<div class="note">
+{block:PostNotes}{PostNotes-16}{/block:PostNotes}
+</div>
+
+<div class="reblogs">{block:RebloggedFrom}{ReblogParentPortraitURL-16}{/block:RebloggedFrom}</div>
+
+<div class="count">
+{block:NoteCount}{NoteCountWithLabel}{/block:NoteCount}
+</div>
+
+
+
+</div> <div id="divposts"> </div>{/block:Posts}  
+
+{block:Pagination}
+{block:NextPage}
+<div class="olderposts">
+<p><a href="{NextPage}">Older posts→</a></p>
+{/block:NextPage}
+</div>{block:PreviousPage}<p><a href="{PreviousPage}">← Newest posts</a></p>{/block:PreviousPage}{/block:Pagination}{body}
+</div>
+</div>
+
+<!-- FOOTER -->
+
+<div class="push"></div>
+        </div>
+        <div class="footer">
+            <br>
+            <div class="pfooter">
+            <p>Copyright ©  {CopyrightYears}</p>
+            
+            <div class="searchbar">
+  <form alig="center" method="get" id="search" action="/search">
+              <input type="text" name="q" value="{SearchQuery}"/>
+</form>
+</div>
+            
+            
+<div class="developed"><p>Code by <a href="http://alessandrofranciosi.tumblr.com">Alessandro Franciosi</a>. Graphics by <a href="http://andreamichielon.tumblr.com">Andrea Michielon</a></p></div>
+            </div>
+    
+</div>
+</body>
+</html>
